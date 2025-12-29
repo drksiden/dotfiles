@@ -25,15 +25,13 @@ Standard GNU utilities have been replaced with high-performance alternatives:
 ```bash
 git clone [https://github.com/YOUR_USERNAME/dotfiles.git](https://github.com/YOUR_USERNAME/dotfiles.git) ~/dotfiles
 cd ~/dotfiles
-
+```
 ### 2. Restore Packages
-Bash
-
+```bash
 sudo pacman -S --needed - < pkglist.txt
-
+```
 ### 3. Apply Configs (GNU Stow)
-Bash
-
+```bash
 # Inside ~/dotfiles
 stow zsh
 stow ghostty
@@ -41,7 +39,7 @@ stow hypr
 stow starship
 stow helix
 stow yazi
-
+```
 ⌨️ Custom Workflow
 
     ls → eza with icons and directory-first grouping.
