@@ -7,7 +7,7 @@ Welcome to my personal configuration repository. This setup is built on top of *
 * **WM:** [Hyprland](https://hyprland.org/) (Wayland)
 * **Shell:** `zsh` + [Starship](https://starship.rs/)
 * **Terminal:** [Ghostty](https://ghostty.org/) ⚡ (Fast, Zig-based)
-* **Editor:** [Helix](https://helix-editor.com/)
+* **Editor:** [Neovim](https://neovim.io/) (LazyVim setup) ⚡
 
 ## 🚀 The Toolset
 Standard GNU utilities have been replaced with high-performance alternatives:
