@@ -1,4 +1,4 @@
-# 🦀 My Rust-Powered Dotfiles (OmArch Edition)
+# 🦀 My Rust-Powered Dotfiles (Omarchy Edition)
 
 Welcome to my personal configuration repository. This setup is built on top of **Omarchy**, focusing on extreme performance, modern CLI aesthetics, and a workflow powered by **Rust** & **Zig** tools.
 
