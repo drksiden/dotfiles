@@ -3,7 +3,7 @@
 Welcome to my personal configuration repository. This setup is built on top of **Omarchy**, focusing on extreme performance, modern CLI aesthetics, and a workflow powered by **Rust** & **Zig** tools.
 
 ## 🛠 System Specs
-* **Distro:** [Arch Linux](https://archlinux.org/) (OmArch) 🏔️
+* **Distro:** [Arch Linux](https://archlinux.org/) (Omarchy) 🏔️
 * **WM:** [Hyprland](https://hyprland.org/) (Wayland)
 * **Shell:** `zsh` + [Starship](https://starship.rs/)
 * **Terminal:** [Ghostty](https://ghostty.org/) ⚡ (Fast, Zig-based)
@@ -23,7 +23,7 @@ Standard GNU utilities have been replaced with high-performance alternatives:
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/dotfiles.git](https://github.com/YOUR_USERNAME/dotfiles.git) ~/dotfiles
+git clone [https://github.com/drksiden/dotfiles.git](https://github.com/drksiden/dotfiles.git) ~/dotfiles
 cd ~/dotfiles
 ```
 ### 2. Restore Packages
