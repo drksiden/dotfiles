@@ -2,8 +2,9 @@
 aether
 amd-ucode
 android-studio
-anydesk-bin
 asdcontrol
+avr-libc
+avrdude
 base
 base-devel
 bash-completion
@@ -31,6 +32,7 @@ dnsmasq
 docker
 docker-buildx
 docker-compose
+dotnet-sdk
 dualsensectl-git
 dust
 efibootmgr
@@ -85,6 +87,7 @@ kdenlive
 kvantum-qt5
 lazydocker
 lazygit
+legacy-launcher
 less
 lib32-nvidia-utils
 libpulse
@@ -102,6 +105,7 @@ luarocks
 mako
 man-db
 mariadb-libs
+mbpoll-git
 mesa-utils
 mise
 mpv
@@ -116,6 +120,7 @@ nss-mdns
 nvidia-open-dkms
 nvidia-prime
 nvidia-utils
+nwg-look
 obs-studio
 obsidian
 omarchy-keyring
@@ -147,9 +152,7 @@ qt5-wayland
 qt6-wayland
 reflector
 ripgrep
-rpcs3-appimage
 ruby
-rust
 rustdesk-bin
 sad
 satty
@@ -157,17 +160,19 @@ scrcpy
 sddm
 signal-desktop
 slurp
+smassh
+socat
 sof-firmware
 speedtest-cli
 spotify
 starship
 steam
 stow
-sunshine
 sushi
 swaybg
 swayosd
 swww
+syncthing
 system-config-printer
 tailscale
 tealdeer
@@ -193,6 +198,7 @@ virt-manager
 virt-viewer
 vlc
 waybar
+waybar-module-pacman-updates-git
 wayfreeze
 wget
 whois
@@ -202,6 +208,7 @@ wiremix
 wireplumber
 wl-clipboard
 woff2-font-awesome
+wttrbar
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-terminal-exec

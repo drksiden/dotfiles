@@ -1,0 +1,263 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "margin-top": 2,
+    "margin-bottom": 0,
+    "margin-left": 2,
+    "margin-right": 2,
+    "spacing": 4,                    // ← добавлено, помогает избежать слипания модулей
+
+    "modules-left": [
+        "custom/omarchy",
+        "clock",
+        "custom/voxtype",
+        "custom/weather",
+        "custom/update",
+        "custom/screenrecording-indicator",
+        "hyprland/workspaces",
+        "mpris"
+    ],
+
+    "modules-center": [
+        "hyprland/window"
+    ],
+
+    "modules-right": [
+        "group/tray-expander",
+        "custom/updatespacman",
+        "idle_inhibitor",
+        "backlight",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "cpu",
+        "battery"
+    ],
+
+    // ──────────────────────────────────────────────────────────────
+    //                        WORKSPACES
+    // ──────────────────────────────────────────────────────────────
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "sort-by-number": true,
+        "format-icons": {
+            "default":  "󰝦",
+            "active":   "󱓻",
+            "urgent":   "",
+            "1": "󰎤", "2": "󰎧", "3": "󰎪", "4": "󰎭", "5": "󰎱",
+            "6": "󰎳", "7": "󰎶", "8": "󰎹", "9": "󰎼", "10": "󰎿"
+        },
+        "persistent-workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": []
+        }
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    //                        WINDOW TITLE
+    // ──────────────────────────────────────────────────────────────
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "separate-outputs": true,
+        "rewrite": {
+            " - ": "",
+            "(.*?) - Zen":                    "zen   $1",
+            "(.*?) - Chromium.*":             "zen   $1",
+            "(.*) - Obsidian.*":              "  $1",
+            "(.*nvim).*":                     "nvim 󰅫  $1",
+            "(.*code) - (.*)":                " 󰨞 $2 ",
+            "^.*btop( .*|$)":                 " 󰧨 BTOP ",
+            "^.*cmatrix( .*|$)":              " 󰘨 MATRIX ",
+            "(.*) - Spotify":                 "  $1 ",
+            "(.*) - com.mitchellh.ghostty":   " 󰊠 $1 ",
+            "(.*) - Alacritty":               "  $1 ",
+            "(.*) - BeeperTexts":             " 󰻞 $1 ",
+            "(.*Discord).*":                  "  $1 ",
+            "(.*) - org.gnome.Nautilus":      " 󰣆 $1 ",
+            "(.*Steam).*":                    "  $1",
+            "(.*imv).*":                      "  $1",
+            "(.*) - com.obsproject.Studio":   "  $1 "
+        }
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    //                        CLOCK & CALENDAR
+    // ──────────────────────────────────────────────────────────────
+    "clock": {
+        "format": "{:%H:%M  %a}",
+        "format-alt": "{:%d %b  %Y  W%V}",
+        "tooltip-format": "<span>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "right",
+            "mode-mon-col": 3,
+            "on-click-right": "mode",
+            "format": {
+                "months":   "<b>{}</b>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today":    "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    //                        CUSTOM MODULES
+    // ──────────────────────────────────────────────────────────────
+    "custom/omarchy": {
+        "format": "󰣇",
+        "on-click": "omarchy-menu",
+        "on-click-right": "xdg-terminal-exec",
+        "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+    },
+
+    "custom/voxtype": {
+        "exec": "omarchy-voxtype-status",
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "idle": "",
+            "recording": "󰍬",
+            "transcribing": "󰔟"
+        },
+        "tooltip": true,
+        "on-click-right": "omarchy-voxtype-config",
+        "on-click": "omarchy-voxtype-model"
+    },
+
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "wttrbar --nerd --location almaty",
+        "return-type": "json"
+    },
+
+    "custom/update": {
+        "format": "",
+        "exec": "omarchy-update-available",
+        "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+        "tooltip-format": "Omarchy update available",
+        "signal": 7,
+        "interval": 18000               // 5 часов — разумный баланс
+    },
+
+    "custom/updatespacman": {
+        "format": "{}{icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": " 󰏖",
+            "updated": ""
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --no-zero-output"
+    },
+
+    "custom/screenrecording-indicator": {
+        "on-click": "omarchy-cmd-screenrecord",
+        "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+        "signal": 8,
+        "return-type": "json"
+    },
+
+    // ──────────────────────────────────────────────────────────────
+    //                        СИСТЕМНЫЕ МОДУЛИ
+    // ──────────────────────────────────────────────────────────────
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        }
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "tooltip-format": "{percent}%",
+        "format-icons": ["󰃚","󰃛","󰃜","󰃝","󰃞","󰃟"]
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n↓{bandwidthDownBytes} ↑{bandwidthUpBytes}",
+        "interval": 4
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-connected": "",
+        "tooltip-format": "Подключено устройств: {num_connections}",
+        "on-click": "omarchy-launch-bluetooth"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "omarchy-launch-or-focus-tui wiremix",
+        "on-click-right": "pamixer -t"
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "󰍛 {usage}%",
+        "on-click": "omarchy-launch-or-focus-tui btop"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-full": "󰁹",
+        "format-icons": {
+            "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+            "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"]
+        },
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "tooltip-format": "{timeTo}",
+        "interval": 10
+    },
+
+    "mpris": {
+        "format": "󰋎 - {title}",
+        "format-paused": "󰏤 - {title}",
+        "max-length": 45,
+        "ignored-players": ["firefox", "chromium", "brave"]
+    },
+
+    "group/tray-expander": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "tray-group-item"
+        },
+        "modules": [
+            "custom/expand-icon",
+            "tray"
+        ]
+    },
+
+    "custom/expand-icon": {
+        "format": "󰇘",
+        "format-expanded": "󰧛",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    }
+}
